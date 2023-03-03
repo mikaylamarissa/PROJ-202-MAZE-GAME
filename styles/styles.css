@@ -1,0 +1,48 @@
+html {
+    max-width: 2000px;
+    text-align: center;
+    background-color: #F0F0F0;
+}
+h1{
+    font-family: "anodyne", sans-serif;
+    color: #484848;
+    font-size: 3rem;
+}
+
+h2{
+    font-family: "anodyne", sans-serif;
+    color: white;
+}
+
+h3{
+    font-family: "anodyne", sans-serif;
+}
+
+p{
+    font-family:"abolition-soft", sans-serif;
+    color: white;
+    letter-spacing: 1.5px;
+}
+
+.instructions {
+    background-color:#484848;
+    padding: 10px;
+    width: 97%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .instructions{
+        width: 668px;
+    }
+  } 
+
+  @media only screen and (min-width: 992px) {
+    .instructions{
+        width:900px;
+    }
+  } 
+  
+  
+
