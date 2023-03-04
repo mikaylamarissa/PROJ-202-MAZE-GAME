@@ -1,48 +1,111 @@
 html {
     max-width: 2000px;
     text-align: center;
-    background-color: #F0F0F0;
+    background: #F0F0F0;
 }
-h1{
+
+.background {
+    background: linear-gradient(to right bottom, #F0F0F0 50%, #FFE141 50%);
+    min-height: 700px;
+}
+
+h1 {
     font-family: "anodyne", sans-serif;
     color: #484848;
     font-size: 3rem;
 }
 
-h2{
+h2 {
     font-family: "anodyne", sans-serif;
-    color: white;
-}
-
-h3{
-    font-family: "anodyne", sans-serif;
-}
-
-p{
-    font-family:"abolition-soft", sans-serif;
-    color: white;
     letter-spacing: 1.5px;
+    font-size: 2rem;
+    color: white;
+}
+
+h3 {
+    font-family: "anodyne", sans-serif;
+}
+
+p {
+    font-family: "abolition-soft", sans-serif;
+    color: white;
+    letter-spacing: 1.75px;
+    line-height: 27px;
+    font-size: 1.25rem;
 }
 
 .instructions {
-    background-color:#484848;
+    background-color: #484848;
     padding: 10px;
     width: 97%;
     margin-right: auto;
     margin-left: auto;
 }
 
+.startButton {
+    margin-top: 40px;
+}
+
+button {
+    background-color: #484848;
+    border: none;
+    padding: 10px 30px;
+}
+
+a {
+    color: #FFE141;
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: "anodyne", sans-serif;
+}
+
+.gameHeader {
+    background-color: #484848;
+}
+.gameHeader h1{
+    color: #FFE141;
+}
+.level{
+    background-color: #FFE141;
+    color: #484848;
+}
+.time{
+    background-color: #FFE141;
+    color: #484848;
+}
+
+
 @media only screen and (min-width: 768px) {
-    .instructions{
+    header{
+        margin-top: 60px;
+    }
+    h1{
+        font-size: 3.25rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    p {
+        line-height: 32px;
+        font-size: 1.5rem;
+    }
+    .instructions {
         width: 668px;
-    }
-  } 
+        padding: 5px 30px;
+    }  
+    
+}
 
-  @media only screen and (min-width: 992px) {
-    .instructions{
-        width:900px;
+@media only screen and (min-width: 992px) {
+    .instructions {
+        width: 900px;
+        padding: 8px 40px;
     }
-  } 
-  
-  
-
+    h1{
+        font-size: 3.5rem;
+    }
+    p {
+        line-height: 38px;
+        font-size: 1.75rem;
+    }
+}
