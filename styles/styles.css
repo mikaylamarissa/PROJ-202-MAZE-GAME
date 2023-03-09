@@ -128,17 +128,56 @@ a {
 .tempInfo p {
     color: #484848
 }
-.musicToggle{
+
+.musicToggle {
     padding-top: 20px;
     display: flex;
     align-items: flex-start;
 }
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
 }
+
+#mapAndControls {
+    display: flex;
+    justify-content: center;
+}
+
+.mazeLevel {
+    position: relative;
+    margin: 0px auto;
+}
+
+div.layer,
+div.layer div {
+    position: absolute
+}
+
+#tiles .floor {
+    border: 1px solid grey;
+}
+
+.default .floor {
+    background-color: #FFE141;
+}
+
+.default .wall {
+    background-color: #484848;
+}
+
+.player, .goal {
+    transform-origin: center;
+    transform:scale(0.85);
+}
+.player {
+    background-image: url('assets/forklift-truck-svgrepo-com.svg');
+}
+
+
 
 /* Hide default HTML checkbox */
 .switch input {
@@ -173,7 +212,7 @@ a {
 }
 
 input:checked+.slider {
-    background-color:#FFE141;
+    background-color: #FFE141;
 }
 
 input:focus+.slider {
@@ -185,6 +224,7 @@ input:checked+.slider:before {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
+
 
 @media only screen and (min-width: 768px) {
     .homeHeader {
