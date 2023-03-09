@@ -69,23 +69,23 @@ Game.prototype.createEl = function(x, y, type) {
     let el = document.createElement('div');
     el.className = type;
     // Sets the size and locations
-    el.style.width = el.style.height = this.tileDim + 'px';
-    el.style.left = x * this.tileDim + 'px';
-    el.style.top = y * this.tileDim + 'px';
+    el.style.width = el.style.height = this.tileSize + 'px';
+    el.style.left = x * this.tileSize + 'px';
+    el.style.top = y * this.tileSize + 'px';
 
     return el;
 }
 
 Game.prototype.sizeUp = function() {
     let map = this.el.querySelector('.mazeLevel');
-    map.style.height = this.map.length * this.tileDim + 'px';
-    map.style.width = this.map[0].length * this.tileDim + 'px';
+    map.style.height = this.map.length * this.tileSize + 'px';
+    map.style.width = this.map[0].length * this.tileSize + 'px';
 }
 
 //Test the map
 
 function init() {
-    let myGame = new Game('mazeGame',levels[0]);
+    let myGame = new Game('mazeGameContainer',levels[0]);
     myGame.populateMap();
     myGame.sizeUp();
 }
