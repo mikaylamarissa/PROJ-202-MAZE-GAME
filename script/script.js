@@ -46,7 +46,7 @@ function Game(id, level) {
 
 Game.prototype.populateMap = function () {
     //Adding the theme class to the maze game container
-    this.el.className = 'game-container ' + this.time;
+    this.el.className = 'mazeGame ' + this.theme;
 
     //creating the tiles layer by using the DOM
     let tiles = document.getElementById('tiles');
@@ -54,8 +54,39 @@ Game.prototype.populateMap = function () {
     for (var y = 0; y < this.map.length; ++y) {
         for (var x = 0; x < this.map[y].length; ++x) {
             let tileCode = this.map[y][x];
-            let tileType = myGame.tileTypes[tileCode];
+            let tileType = this.tileTypes[tileCode];
+            let tile = this.createEl(x, y, tileType);
+            //add to the tile layer
+            tiles.appendChild(tile);
         }
     }
 
 }
+
+//Creating Tile and Sprite
+Game.prototype.createEl = function(x, y, type) {
+    // Makes the div element and sets the class
+    let el = document.createElement('div');
+    el.className = type;
+    // Sets the size and locations
+    el.style.width = el.style.height = this.tileDim + 'px';
+    el.style.left = x * this.tileDim + 'px';
+    el.style.top = y * this.tileDim + 'px';
+
+    return el;
+}
+
+Game.prototype.sizeUp = function() {
+    let map = this.el.querySelector('.mazeLevel');
+    map.style.height = this.map.length * this.tileDim + 'px';
+    map.style.width = this.map[0].length * this.tileDim + 'px';
+}
+
+//Test the map
+
+function init() {
+    let myGame = new Game('mazeGame',levels[0]);
+    myGame.populateMap();
+    myGame.sizeUp();
+}
+init();
