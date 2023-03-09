@@ -30,3 +30,16 @@ levels[0] = {
     },
     theme:'default'
 };
+
+function Game(id,level){
+    this.el = document.getElementById(id);
+    this.tileTypes = ['floor', 'wall'];
+    this.tileSize = 32;
+    //inheritting the level's properties
+    this.map = level.map;
+    this.theme = level.theme;
+    
+    this.player = {...level.player};
+    this.goal = {...level.goal};
+    this.player.el = null; 
+}
