@@ -128,16 +128,75 @@ a {
 .tempInfo p {
     color: #484848
 }
-.musicToggle{
+
+.musicToggle {
     padding-top: 20px;
     display: flex;
     align-items: flex-start;
 }
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+}
+
+#mapAndControls {
+    display: flex;
+    justify-content: center;
+}
+
+.mazeLevel {
+    position: relative;
+    margin: 0px auto;
+}
+
+div.layer,
+div.layer div {
+    position: absolute
+}
+
+#tiles .floor {
+    border: 1px solid grey;
+}
+
+.default .floor {
+    background-color: #FFE141;
+}
+
+.default .wall {
+    background-color: #484848;
+}
+
+.player, .goal {
+    transform-origin: center;
+    transform:scale(0.85);
+}
+.player {
+    background-color: greenyellow;
+    border: 1px solid green;
+    transition: left 0.2s linear, top 0.2s linear;
+}
+
+.goal {
+    background-color:red;
+    border: 1px solid darkred;
+}
+
+#success-msg {
+    opacity:0;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    padding: 5px 5px;
+    background-color: rgba(0,0,0,5);
+    color:white;
+    width:calc(100% - 8px);
+}
+
+body.success #success-msg {
+    opacity: 1;
+    transition: opactity 0.2 ease;
 }
 
 /* Hide default HTML checkbox */
@@ -173,7 +232,7 @@ a {
 }
 
 input:checked+.slider {
-    background-color:#FFE141;
+    background-color: #FFE141;
 }
 
 input:focus+.slider {
@@ -185,6 +244,7 @@ input:checked+.slider:before {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
+
 
 @media only screen and (min-width: 768px) {
     .homeHeader {
