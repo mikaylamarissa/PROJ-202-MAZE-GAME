@@ -168,10 +168,6 @@ div.layer div {
     background-color:#484848;
 }
 
-.player {
-    background-color: aqua;
-    border: 1px solid gray;
-}
 
 .goal {
     background-color: red;
@@ -179,6 +175,7 @@ div.layer div {
 }
 
 .player {
+    /* background-image: url('../assets/forklift-truck-svgrepo-com.svg'); */
     background-color: greenyellow;
     border: 1px solid rebeccapurple;
     transition: left 0.2s linear, top 0.2s linear;
