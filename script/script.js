@@ -64,29 +64,117 @@ Game.prototype.populateMap = function () {
 }
 
 //Creating Tile and Sprite
-Game.prototype.createEl = function(x, y, type) {
+Game.prototype.createEl = function (x, y, type) {
     // Makes the div element and sets the class
     let el = document.createElement('div');
     el.className = type;
     // Sets the size and locations
-    el.style.width = el.style.height = this.tileDim + 'px';
-    el.style.left = x * this.tileDim + 'px';
-    el.style.top = y * this.tileDim + 'px';
+    el.style.width = el.style.height = this.tileSize + 'px';
+    el.style.left = x * this.tileSize + 'px';
+    el.style.top = y * this.tileSize + 'px';
 
     return el;
 }
 
-Game.prototype.sizeUp = function() {
+Game.prototype.sizeUp = function () {
     let map = this.el.querySelector('.mazeLevel');
-    map.style.height = this.map.length * this.tileDim + 'px';
-    map.style.width = this.map[0].length * this.tileDim + 'px';
+    map.style.height = this.map.length * this.tileSize + 'px';
+    map.style.width = this.map[0].length * this.tileSize + 'px';
+};
+
+// Add Player Goal and Sprites
+Game.prototype.placeSprite = function (type) {
+    let x = this[type].x
+    let y = this[type].y
+    let sprite = this.createEl(x, y, type);
+    sprite.id = type;
+
+    sprite.style.borderRadius = this.tileSize + 'px';
+    let layer = this.el.querySelector('#sprites');
+    layer.appendChild(sprite);
+
+    return sprite;
+};
+Game.prototype.movePlayer = function (event) {
+    event.preventDefault();
+    //Key codes for the arrow buttons are: left(37), up(38), right(39), down(40)
+    if (event.keyCode < 37 || event.keycode > 40) {
+        return;
+    }
+
+    switch (event.keyCode) {
+        //moves player to the left
+        case 37:
+            this.moveLeft();
+            break;
+
+        //moves player up
+        case 38:
+            this.moveUp();
+            break;
+
+        //moves player to the right
+        case 39:
+            this.moveRight()
+            break;
+
+        //moves player down
+        case 40:
+            this.moveDown();
+            break;
+    }
+};
+
+//Move Player Up
+Game.prototype.moveUp = function () {
+    this.player.y -= 1;
+    this.updateVerticals();
+};
+
+//Move Player Down
+Game.prototype.moveDown = function() {
+    this.player.y +=1;
+    this.updateVerticals();
+};
+
+//Update Vertical Position
+Game.prototype.updateVerticals = function () {
+    this.player.el.style.top = this.player.y * this.tileSize + 'px'
+};
+
+//Move Player Left
+Game.prototype.moveLeft = function(sprite) {
+    this.player.x -=1;
+    this.updateHorizontals(sprite);
+};
+Game.prototype.moveRight = function(sprite) {
+    this.player.x +=1;
+    this.updateHorizontals(sprite);
 }
 
-//Test the map
+//Update Horizontal Positoin 
+Game.prototype.updateHorizontals = function (sprite) {
+    this.player.el.style.left = this.player.x* this.tileSize + 'px'
+}
 
+
+//Move the player
+Game.prototype.keyboardListener = function (event) {
+    document.addEventListener('keydown', event => {
+        this.movePlayer(event);
+    }
+    )
+};
+
+//Test the map
 function init() {
-    let myGame = new Game('mazeGame',levels[0]);
+    let myGame = new Game('mazeGameContainer', levels[0]);
     myGame.populateMap();
     myGame.sizeUp();
+    // Storing the element in the playerSprite variable
+    let playerSprite = myGame.placeSprite('player');
+    myGame.player.el = playerSprite;
+    myGame.placeSprite('goal');
+    myGame.keyboardListener();
 }
 init();
