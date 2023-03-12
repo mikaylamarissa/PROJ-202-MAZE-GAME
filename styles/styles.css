@@ -190,6 +190,10 @@ div.layer div {
     color: white;
     width: calc(100% - 8px);
 }
+body.success {
+    background-color: aqua;
+    transition: 0.2s ease;
+}
 
 body.success #success-msg {
     opacity: 1;

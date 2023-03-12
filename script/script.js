@@ -195,15 +195,25 @@ Game.prototype.updateHorizontals = function (sprite) {
     this.player.el.style.left = this.player.x * this.tileSize + 'px'
 }
 
-
-//Move the player
 Game.prototype.keyboardListener = function (event) {
     document.addEventListener('keydown', event => {
         this.movePlayer(event);
+        //Checks to see if they reached goal
+        this.checkGoal();
     }
     )
 };
 
+//Goal detection
+Game.prototype.checkGoal = function() {
+let body = document.querySelector('body');
+if (this.player.y == this.goal.y && this.player.x == this.goal.x){
+    body.className = 'success';
+}
+else {
+    body.className = '';
+}
+}
 
 //Test the map
 function init() {
