@@ -132,7 +132,7 @@ Game.prototype.moveUp = function () {
         return;
     }
     //Adding wall detection
-    let nextTile = this.map[this.player.y-1][this.player.x];
+    let nextTile = this.map[this.player.y - 1][this.player.x];
     if (nextTile == 1) {
         return;
     }
@@ -147,7 +147,7 @@ Game.prototype.moveDown = function () {
         return;
     }
     //Adding wall detection
-    let nextTile = this.map[this.player.y+1][this.player.x];
+    let nextTile = this.map[this.player.y + 1][this.player.x];
     if (nextTile == 1) {
         return;
     }
