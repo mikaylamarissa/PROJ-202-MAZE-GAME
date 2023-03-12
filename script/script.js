@@ -127,13 +127,31 @@ Game.prototype.movePlayer = function (event) {
 
 //Move Player Up
 Game.prototype.moveUp = function () {
+    // Only move up if greater than zero
+    if (this.player.y == 0) {
+        return;
+    }
+    //Adding wall detection
+    let nextTile = this.map[this.player.y-1][this.player.x];
+    if (nextTile == 1) {
+        return;
+    }
     this.player.y -= 1;
     this.updateVerticals();
 };
 
 //Move Player Down
-Game.prototype.moveDown = function() {
-    this.player.y +=1;
+Game.prototype.moveDown = function () {
+    // Only move down if it is less than the index of last row in array
+    if (this.player.y == this.map.length - 1) {
+        return;
+    }
+    //Adding wall detection
+    let nextTile = this.map[this.player.y+1][this.player.x];
+    if (nextTile == 1) {
+        return;
+    }
+    this.player.y += 1;
     this.updateVerticals();
 };
 
@@ -143,18 +161,38 @@ Game.prototype.updateVerticals = function () {
 };
 
 //Move Player Left
-Game.prototype.moveLeft = function(sprite) {
-    this.player.x -=1;
+Game.prototype.moveLeft = function (sprite) {
+    //Only move left if greater than zero
+    if (this.player.x == 0) {
+        return;
+    }
+    //Adding wall detection
+    let nextTile = this.map[this.player.y][this.player.x - 1];
+    if (nextTile == 1) {
+        return;
+    }
+    this.player.x -= 1;
     this.updateHorizontals(sprite);
 };
-Game.prototype.moveRight = function(sprite) {
-    this.player.x +=1;
+
+//Move Player Right
+Game.prototype.moveRight = function (sprite) {
+    //Only move right if less than the index in last row in the array
+    if (this.player.x == this.map[this.player.y].length - 1) {
+        return;
+    }
+    // Adding wall detection
+    let nextTile = this.map[this.player.y][this.player.x + 1];
+    if (nextTile == 1) {
+        return;
+    }
+    this.player.x += 1;
     this.updateHorizontals(sprite);
 }
 
 //Update Horizontal Positoin 
 Game.prototype.updateHorizontals = function (sprite) {
-    this.player.el.style.left = this.player.x* this.tileSize + 'px'
+    this.player.el.style.left = this.player.x * this.tileSize + 'px'
 }
 
 
@@ -165,6 +203,7 @@ Game.prototype.keyboardListener = function (event) {
     }
     )
 };
+
 
 //Test the map
 function init() {
