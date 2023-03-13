@@ -2,6 +2,7 @@
 //The array will contain a level object with three properties: Game Map, Player Start Coordinates and Goal Coordinates
 let levels = [];
 
+//Level 1
 levels[0] = {
     //0 = floor  1 = wall
     map: [
@@ -31,18 +32,296 @@ levels[0] = {
     theme: 'default'
 };
 
-function Game(id, level) {
-    this.el = document.getElementById(id);
-    this.tileTypes = ['floor', 'wall'];
-    this.tileSize = 32;
-    //inheritting the level's properties
-    this.map = level.map;
-    this.theme = level.theme;
+//Level 2
+levels[1] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
+        [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
+        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 6,
+        y: 11
+    },
+    // x and y values will be the goal positon
+    goal: {
+        x: 1,
+        y: 0
+    },
+    theme: 'default'
+},
+    //Level 3
+    levels[2] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+            [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
+            [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1],
+            [1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+            [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
+            [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 10,
+            y: 11
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 10,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 4
+    levels[3] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
+            [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
+            [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+            [1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
+            [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
+            [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
 
-    this.player = { ...level.player };
-    this.goal = { ...level.goal };
-    this.player.el = null;
-}
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 9,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 8,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 5
+    levels[4] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+            [1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+            [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1],
+            [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
+            [1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 1,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 1,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 6
+    levels[5] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+            [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1],
+            [1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
+            [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
+            [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
+
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 6,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 13,
+            y: 3
+        },
+        theme: 'default'
+    },
+    //Level 7
+    levels[6] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+            [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1],
+            [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+            [1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1],
+            [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+            [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
+
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 6,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 10,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 8
+    levels[7] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
+            [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1],
+            [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+            [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1],
+            [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+            [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 10,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 8,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 9
+    levels[8] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
+            [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
+            [1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1],
+            [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+            [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+            [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 7,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 6,
+            y: 0
+        },
+        theme: 'default'
+    },
+    //Level 10
+    levels[9] = {
+        //0 = floor  1 = wall
+        map: [
+            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+            [1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+            [1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+            [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+            [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+        ],
+        // x and y values will be the players starting position
+        player: {
+            x: 12,
+            y: 13
+        },
+        // x and y values will be the goal positon
+        goal: {
+            x: 6,
+            y: 0
+        },
+        theme: 'default'
+    },
+    function Game(id, level) {
+        this.el = document.getElementById(id);
+        this.tileTypes = ['floor', 'wall'];
+        this.tileSize = 32;
+        //inheritting the level's properties
+        this.map = level.map;
+        this.theme = level.theme;
+
+        this.player = { ...level.player };
+        this.goal = { ...level.goal };
+        this.player.el = null;
+    }
 
 Game.prototype.populateMap = function () {
     //Adding the theme class to the maze game container
@@ -205,14 +484,14 @@ Game.prototype.keyboardListener = function (event) {
 };
 
 //Goal detection
-Game.prototype.checkGoal = function() {
-let body = document.querySelector('body');
-if (this.player.y == this.goal.y && this.player.x == this.goal.x){
-   alert("Level Complete");
-}
-else {
-    body.className = '';
-}
+Game.prototype.checkGoal = function () {
+    let body = document.querySelector('body');
+    if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
+        alert("Level Complete");
+    }
+    else {
+        body.className = '';
+    }
 }
 
 //Test the map
