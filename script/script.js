@@ -107,8 +107,7 @@ levels[1] = {
             [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
             [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
             [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
-
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
         ],
         // x and y values will be the players starting position
         player: {
@@ -139,7 +138,7 @@ levels[1] = {
             [1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
             [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         ],
         // x and y values will be the players starting position
         player: {
@@ -234,7 +233,7 @@ levels[1] = {
             [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1],
             [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]
         ],
         // x and y values will be the players starting position
         player: {
@@ -265,7 +264,7 @@ levels[1] = {
             [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1],
             [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1],
             [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]
         ],
         // x and y values will be the players starting position
         player: {
@@ -296,7 +295,7 @@ levels[1] = {
             [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
             [1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
             [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
         ],
         // x and y values will be the players starting position
         player: {
@@ -312,6 +311,7 @@ levels[1] = {
     },
     function Game(id, level) {
         this.el = document.getElementById(id);
+        this.levelUp = 0;
         this.tileTypes = ['floor', 'wall'];
         this.tileSize = 32;
         //inheritting the level's properties
@@ -467,12 +467,12 @@ Game.prototype.moveRight = function (sprite) {
     }
     this.player.x += 1;
     this.updateHorizontals(sprite);
-}
+};
 
 //Update Horizontal Positoin 
 Game.prototype.updateHorizontals = function (sprite) {
     this.player.el.style.left = this.player.x * this.tileSize + 'px'
-}
+};
 
 Game.prototype.keyboardListener = function (event) {
     document.addEventListener('keydown', event => {
@@ -492,17 +492,56 @@ Game.prototype.checkGoal = function () {
     else {
         body.className = '';
     }
-}
+};
 
-//Test the map
-function init() {
-    let myGame = new Game('mazeGameContainer', levels[0]);
-    myGame.populateMap();
-    myGame.sizeUp();
-    // Storing the element in the playerSprite variable
-    let playerSprite = myGame.placeSprite('player');
-    myGame.player.el = playerSprite;
-    myGame.placeSprite('goal');
-    myGame.keyboardListener();
+// Listens for clicks or taps to the maze
+Game.prototype.addMazeListener = function () {
+    let map = this.el.querySelector('.mazeLevel');
+    let obj = this;
+    map.addEventListener('mousedown', function(e) {
+        //if not at the goal get out of function
+
+        if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
+            return;
+        }
+        obj.changeLevel();
+        let layers = obj.el.querySelectorAll('.layer');
+        for(layer of layers) {
+            layer.innerHTML = '';
+        }
+        obj.placeLevel();
+        obj.checkGoal();
+    });
+}
+// Change levels
+Game.prototype.changeLevel = function() {
+    this.levelUp++;
+    if (this.levelUp > levels.length - 1) {
+        alert("You Have finished the Game")
+    }
+    let level = levels[this.levelUp];
+    this.map = level.map;
+    this.theme = level.theme;
+    this.player = {...level.player};
+    this.goal = {...level.goal};
+}
+//Reorganized everything that was in the init function
+Game.prototype.addEventListeners = function () {
+    this.keyboardListener();
+    this.addMazeListener();
+};
+
+Game.prototype.placeLevel = function () {
+    this.populateMap();
+    this.sizeUp();
+    this.placeSprite('goal');
+    let playerSprite = this.placeSprite('player');
+    this.player.el = playerSprite;
+};
+
+function init () {
+    let myGame = new Game('mazeGameContainer',levels[0]);
+    myGame.placeLevel();
+    myGame.addListeners();
 }
 init();
