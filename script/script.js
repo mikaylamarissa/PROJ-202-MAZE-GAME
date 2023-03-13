@@ -41,8 +41,8 @@ levels[1] = {
         [1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
         [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1],
         [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
-        [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
         [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
@@ -101,12 +101,12 @@ levels[3] = {
         [1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
         [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-        [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
         [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1],
-        [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
         [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
-        [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
     ],
     // x and y values will be the players starting position
@@ -450,7 +450,7 @@ Game.prototype.moveLeft = function (sprite) {
     let nextTile = this.map[this.player.y][this.player.x - 1];
     if (nextTile == 1) {
         return;
-    }
+    };
     this.player.x -= 1;
     this.updateHorizontals(sprite);
 };
@@ -460,12 +460,12 @@ Game.prototype.moveRight = function (sprite) {
     //Only move right if less than the index in last row in the array
     if (this.player.x == this.map[this.player.y].length - 1) {
         return;
-    }
+    };
     // Adding wall detection
     let nextTile = this.map[this.player.y][this.player.x + 1];
     if (nextTile == 1) {
         return;
-    }
+    };
     this.player.x += 1;
     this.updateHorizontals(sprite);
 };
@@ -481,14 +481,14 @@ Game.prototype.keyboardListener = function (event) {
         //Checks to see if they reached goal
         this.checkGoal();
     }
-    )
+    );
 };
 
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
-        alert("Level Complete");
+        alert("Level Complete. Click on the maze to move to next level.");
     }
     else {
         body.className = '';
@@ -505,6 +505,7 @@ Game.prototype.addMazeListener = function () {
             return;
         };
         obj.changeLevel();
+        // Clear tile and sprite layers
         let layers = obj.el.querySelectorAll('.layer');
         for (layer of layers) {
             layer.innerHTML = '';
@@ -517,7 +518,7 @@ Game.prototype.addMazeListener = function () {
 Game.prototype.changeLevel = function () {
     this.levelUp++;
     if (this.levelUp > levels.length - 1) {
-        alert("You Have finished the Game")
+        alert("You Have finished the Game.")
     };
     let level = levels[this.levelUp];
     this.map = level.map;
