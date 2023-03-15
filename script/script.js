@@ -395,7 +395,7 @@ Game.prototype.movePlayer = function (event) {
 
         //moves player to the right
         case 39:
-            this.moveRight()
+            this.moveRight();
             break;
 
         //moves player down
@@ -459,6 +459,7 @@ Game.prototype.moveLeft = function (sprite) {
     };
     this.player.x -= 1;
     this.updateHorizontals(sprite);
+    document.getElementById("player").style.transform = "scaleX(-1)";
 };
 
 //Move Player Right
@@ -476,6 +477,7 @@ Game.prototype.moveRight = function (sprite) {
     };
     this.player.x += 1;
     this.updateHorizontals(sprite);
+    document.getElementById("player").style.transform = "scaleX(1)";
 };
 
 //Update Horizontal Positoin 
@@ -522,6 +524,7 @@ Game.prototype.addMazeListener = function () {
         obj.checkGoal();
     });
 };
+
 // Change levels
 Game.prototype.changeLevel = function () {
     this.levelUp++;
