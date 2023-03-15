@@ -409,11 +409,13 @@ Game.prototype.movePlayer = function (event) {
 Game.prototype.moveUp = function () {
     // Only move up if greater than zero
     if (this.player.y == 0) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y - 1][this.player.x];
     if (nextTile == 1) {
+        this.collide();
         return;
     }
     this.player.y -= 1;
@@ -424,11 +426,13 @@ Game.prototype.moveUp = function () {
 Game.prototype.moveDown = function () {
     // Only move down if it is less than the index of last row in array
     if (this.player.y == this.map.length - 1) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y + 1][this.player.x];
     if (nextTile == 1) {
+        this.collide();
         return;
     }
     this.player.y += 1;
@@ -444,11 +448,13 @@ Game.prototype.updateVerticals = function () {
 Game.prototype.moveLeft = function (sprite) {
     //Only move left if greater than zero
     if (this.player.x == 0) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y][this.player.x - 1];
     if (nextTile == 1) {
+        this.collide();
         return;
     };
     this.player.x -= 1;
@@ -459,11 +465,13 @@ Game.prototype.moveLeft = function (sprite) {
 Game.prototype.moveRight = function (sprite) {
     //Only move right if less than the index in last row in the array
     if (this.player.x == this.map[this.player.y].length - 1) {
+        this.collide();
         return;
     };
     // Adding wall detection
     let nextTile = this.map[this.player.y][this.player.x + 1];
     if (nextTile == 1) {
+        this.collide();
         return;
     };
     this.player.x += 1;
@@ -526,6 +534,17 @@ Game.prototype.changeLevel = function () {
     this.player = { ...level.player };
     this.goal = { ...level.goal };
 };
+
+//Collision
+Game.prototype.collide = function() {
+    this.player.el.className += ' collide';
+    let delay = 200;
+    let obj = this;
+    window.setTimeout(function(){
+        obj.player.el.className = 'player';
+    }, delay);
+};
+
 //Reorganized everything that was in the init function
 Game.prototype.addListeners = function () {
     this.keyboardListener();
