@@ -368,7 +368,6 @@ Game.prototype.placeSprite = function (type) {
     let sprite = this.createEl(x, y, type);
     sprite.id = type;
 
-    sprite.style.borderRadius = this.tileSize + 'px';
     let layer = this.el.querySelector('#sprites');
     layer.appendChild(sprite);
 
