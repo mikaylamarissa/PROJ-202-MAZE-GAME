@@ -536,19 +536,51 @@ Game.prototype.changeLevel = function () {
 };
 
 //Collision
-Game.prototype.collide = function() {
+Game.prototype.collide = function () {
     this.player.el.className += ' collide';
     let delay = 200;
     let obj = this;
-    window.setTimeout(function(){
+    window.setTimeout(function () {
         obj.player.el.className = 'player';
     }, delay);
+};
+
+//Button Listeners
+Game.prototype.buttonListeners = function (info_msg, goal_msg) {
+    let up = document.getElementById('up');
+    let down = document.getElementById('down');
+    let left = document.getElementById('left');
+    let right = document.getElementById('right');
+
+    let obj = this;
+
+    //Add event listener for each button
+    up.addEventListener('mousedown', function () {
+        obj.moveUp();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    down.addEventListener('mousedown', function () {
+        obj.moveDown();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    left.addEventListener('mousedown', function () {
+        obj.moveLeft();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    right.addEventListener('mousedown', function () {
+        obj.moveRight();
+        obj.checkGoal(info_msg, goal_msg);
+    });
 };
 
 //Reorganized everything that was in the init function
 Game.prototype.addListeners = function () {
     this.keyboardListener();
     this.addMazeListener();
+    this.buttonListeners();
 };
 
 Game.prototype.placeLevel = function () {
