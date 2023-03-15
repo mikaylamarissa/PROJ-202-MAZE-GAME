@@ -41,18 +41,109 @@ levels[1] = {
         [1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
         [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1],
         [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
-        [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
         [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1]
     ],
-    // x and y values will be the players starting position
+    //     // x and y values will be the players starting position
     player: {
         x: 6,
         y: 11
+    },
+    //     // x and y values will be the goal positon
+    goal: {
+        x: 1,
+        y: 0
+    },
+    theme: 'default'
+};
+//Level 3
+levels[2] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+        [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1],
+        [1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+        [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 10,
+        y: 11
+    },
+    // x and y values will be the goal positon
+    goal: {
+        x: 10,
+        y: 0
+    },
+    theme: 'default'
+};
+//Level 4
+levels[3] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
+        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 9,
+        y: 13
+    },
+    // x and y values will be the goal positon
+    goal: {
+        x: 8,
+        y: 0
+    },
+    theme: 'default'
+};
+//Level 5
+levels[4] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        [1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+        [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 1,
+        y: 13
     },
     // x and y values will be the goal positon
     goal: {
@@ -60,268 +151,178 @@ levels[1] = {
         y: 0
     },
     theme: 'default'
-},
-    //Level 3
-    levels[2] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
-            [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
-            [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-            [1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1],
-            [1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
-            [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-            [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
-            [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 10,
-            y: 11
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 10,
-            y: 0
-        },
-        theme: 'default'
-    },
-    //Level 4
-    levels[3] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
-            [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
-            [1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
-            [1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
-            [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1],
-            [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
-            [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 9,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 8,
-            y: 0
-        },
-        theme: 'default'
-    },
-    //Level 5
-    levels[4] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-            [1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
-            [1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
-            [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1],
-            [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
-            [1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 1,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 1,
-            y: 0
-        },
-        theme: 'default'
-    },
-    //Level 6
-    levels[5] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
-            [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0],
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-            [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1],
-            [1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
-            [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
-            [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
-            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
+};
+//Level 6
+levels[5] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1],
+        [1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
 
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 6,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 13,
-            y: 3
-        },
-        theme: 'default'
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 6,
+        y: 13
     },
-    //Level 7
-    levels[6] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-            [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-            [1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1],
-            [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1],
-            [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
-            [1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-            [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1],
-            [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-            [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
+    // x and y values will be the goal positon
+    goal: {
+        x: 13,
+        y: 3
+    },
+    theme: 'default'
+};
+//Level 7
+levels[6] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+        [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1],
+        [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+        [1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1],
+        [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1]
 
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 6,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 10,
-            y: 0
-        },
-        theme: 'default'
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 6,
+        y: 13
     },
-    //Level 8
-    levels[7] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-            [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1],
-            [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
-            [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1],
-            [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1],
-            [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 10,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 8,
-            y: 0
-        },
-        theme: 'default'
+    // x and y values will be the goal positon
+    goal: {
+        x: 10,
+        y: 0
     },
-    //Level 9
-    levels[8] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
-            [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
-            [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
-            [1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1],
-            [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1],
-            [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1],
-            [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1],
-            [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 7,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 6,
-            y: 0
-        },
-        theme: 'default'
+    theme: 'default'
+};
+//Level 8
+levels[7] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+        [1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1],
+        [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+        [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 10,
+        y: 13
     },
-    //Level 10
-    levels[9] = {
-        //0 = floor  1 = wall
-        map: [
-            [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-            [1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
-            [1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
-            [1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
-            [1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
-        ],
-        // x and y values will be the players starting position
-        player: {
-            x: 12,
-            y: 13
-        },
-        // x and y values will be the goal positon
-        goal: {
-            x: 6,
-            y: 0
-        },
-        theme: 'default'
+    // x and y values will be the goal positon
+    goal: {
+        x: 8,
+        y: 0
     },
-    function Game(id, level) {
-        this.el = document.getElementById(id);
-        this.levelUp = 0;
-        this.tileTypes = ['floor', 'wall'];
-        this.tileSize = 32;
-        //inheritting the level's properties
-        this.map = level.map;
-        this.theme = level.theme;
+    theme: 'default'
+};
+//Level 9
+levels[8] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
+        [1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1],
+        [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 7,
+        y: 13
+    },
+    // x and y values will be the goal positon
+    goal: {
+        x: 6,
+        y: 0
+    },
+    theme: 'default'
+};
+//Level 10
+levels[9] = {
+    //0 = floor  1 = wall
+    map: [
+        [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+        [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+        [1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+    ],
+    // x and y values will be the players starting position
+    player: {
+        x: 12,
+        y: 13
+    },
+    // x and y values will be the goal positon
+    goal: {
+        x: 6,
+        y: 0
+    },
+    theme: 'default'
+};
 
-        this.player = { ...level.player };
-        this.goal = { ...level.goal };
-        this.player.el = null;
-    }
+function Game(id, level) {
+    this.el = document.getElementById(id);
+    this.levelUp = 0;
+    this.tileTypes = ['floor', 'wall'];
+    this.tileSize = 32;
+    //inheritting the level's properties
+    this.map = level.map;
+    this.theme = level.theme;
+
+    this.player = { ...level.player };
+    this.goal = { ...level.goal };
+    this.player.el = null;
+};
 
 Game.prototype.populateMap = function () {
     //Adding the theme class to the maze game container
@@ -339,8 +340,7 @@ Game.prototype.populateMap = function () {
             tiles.appendChild(tile);
         }
     }
-
-}
+};
 
 //Creating Tile and Sprite
 Game.prototype.createEl = function (x, y, type) {
@@ -353,7 +353,7 @@ Game.prototype.createEl = function (x, y, type) {
     el.style.top = y * this.tileSize + 'px';
 
     return el;
-}
+};
 
 Game.prototype.sizeUp = function () {
     let map = this.el.querySelector('.mazeLevel');
@@ -374,6 +374,7 @@ Game.prototype.placeSprite = function (type) {
 
     return sprite;
 };
+
 Game.prototype.movePlayer = function (event) {
     event.preventDefault();
     //Key codes for the arrow buttons are: left(37), up(38), right(39), down(40)
@@ -394,7 +395,7 @@ Game.prototype.movePlayer = function (event) {
 
         //moves player to the right
         case 39:
-            this.moveRight()
+            this.moveRight();
             break;
 
         //moves player down
@@ -408,11 +409,13 @@ Game.prototype.movePlayer = function (event) {
 Game.prototype.moveUp = function () {
     // Only move up if greater than zero
     if (this.player.y == 0) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y - 1][this.player.x];
     if (nextTile == 1) {
+        this.collide();
         return;
     }
     this.player.y -= 1;
@@ -423,11 +426,13 @@ Game.prototype.moveUp = function () {
 Game.prototype.moveDown = function () {
     // Only move down if it is less than the index of last row in array
     if (this.player.y == this.map.length - 1) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y + 1][this.player.x];
     if (nextTile == 1) {
+        this.collide();
         return;
     }
     this.player.y += 1;
@@ -443,30 +448,36 @@ Game.prototype.updateVerticals = function () {
 Game.prototype.moveLeft = function (sprite) {
     //Only move left if greater than zero
     if (this.player.x == 0) {
+        this.collide();
         return;
     }
     //Adding wall detection
     let nextTile = this.map[this.player.y][this.player.x - 1];
     if (nextTile == 1) {
+        this.collide();
         return;
-    }
+    };
     this.player.x -= 1;
     this.updateHorizontals(sprite);
+    document.getElementById("player").style.transform = "scaleX(-1)";
 };
 
 //Move Player Right
 Game.prototype.moveRight = function (sprite) {
     //Only move right if less than the index in last row in the array
     if (this.player.x == this.map[this.player.y].length - 1) {
+        this.collide();
         return;
-    }
+    };
     // Adding wall detection
     let nextTile = this.map[this.player.y][this.player.x + 1];
     if (nextTile == 1) {
+        this.collide();
         return;
-    }
+    };
     this.player.x += 1;
     this.updateHorizontals(sprite);
+    document.getElementById("player").style.transform = "scaleX(1)";
 };
 
 //Update Horizontal Positoin 
@@ -480,14 +491,14 @@ Game.prototype.keyboardListener = function (event) {
         //Checks to see if they reached goal
         this.checkGoal();
     }
-    )
+    );
 };
 
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
-        alert("Level Complete");
+        alert("Level Complete. Click on the maze to move to next level.");
     }
     else {
         body.className = '';
@@ -498,37 +509,81 @@ Game.prototype.checkGoal = function () {
 Game.prototype.addMazeListener = function () {
     let map = this.el.querySelector('.mazeLevel');
     let obj = this;
-    map.addEventListener('mousedown', function(e) {
-        //if not at the goal get out of function
-
+    map.addEventListener('mousedown', function (e) {
+        // if not at the goal get out of function
         if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
             return;
-        }
+        };
         obj.changeLevel();
+        // Clear tile and sprite layers
         let layers = obj.el.querySelectorAll('.layer');
-        for(layer of layers) {
+        for (layer of layers) {
             layer.innerHTML = '';
-        }
+        };
         obj.placeLevel();
         obj.checkGoal();
     });
-}
+};
+
 // Change levels
-Game.prototype.changeLevel = function() {
+Game.prototype.changeLevel = function () {
     this.levelUp++;
     if (this.levelUp > levels.length - 1) {
-        alert("You Have finished the Game")
-    }
+        alert("You Have finished the Game.")
+    };
     let level = levels[this.levelUp];
     this.map = level.map;
     this.theme = level.theme;
-    this.player = {...level.player};
-    this.goal = {...level.goal};
-}
+    this.player = { ...level.player };
+    this.goal = { ...level.goal };
+};
+
+//Collision
+Game.prototype.collide = function () {
+    this.player.el.className += ' collide';
+    let delay = 200;
+    let obj = this;
+    window.setTimeout(function () {
+        obj.player.el.className = 'player';
+    }, delay);
+};
+
+//Button Listeners
+Game.prototype.buttonListeners = function (info_msg, goal_msg) {
+    let up = document.getElementById('up');
+    let down = document.getElementById('down');
+    let left = document.getElementById('left');
+    let right = document.getElementById('right');
+
+    let obj = this;
+
+    //Add event listener for each button
+    up.addEventListener('mousedown', function () {
+        obj.moveUp();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    down.addEventListener('mousedown', function () {
+        obj.moveDown();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    left.addEventListener('mousedown', function () {
+        obj.moveLeft();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+
+    right.addEventListener('mousedown', function () {
+        obj.moveRight();
+        obj.checkGoal(info_msg, goal_msg);
+    });
+};
+
 //Reorganized everything that was in the init function
-Game.prototype.addEventListeners = function () {
+Game.prototype.addListeners = function () {
     this.keyboardListener();
     this.addMazeListener();
+    this.buttonListeners();
 };
 
 Game.prototype.placeLevel = function () {
@@ -539,9 +594,9 @@ Game.prototype.placeLevel = function () {
     this.player.el = playerSprite;
 };
 
-function init () {
-    let myGame = new Game('mazeGameContainer',levels[0]);
+function init() {
+    let myGame = new Game('mazeGameContainer', levels[0]);
     myGame.placeLevel();
     myGame.addListeners();
-}
+};
 init();
