@@ -151,15 +151,55 @@ a {
 
 #controls button {
     padding: 10px;
-    width:40px;
-    height:40px;
+    width: 40px;
+    height: 40px;
     margin-top: 10px;
     background-color: #FFE141;
     border: 3px dashed #484848;
-    cursor:pointer;
-    position:relative;
+    cursor: pointer;
+    position: relative;
+}
+#controls button:hover{
+    background-color: #ccc;
 }
 
+#controls button::before {
+    content: '';
+    width: 0px;
+    position: absolute;
+}
+
+button#left::before {
+    border-top: 10px solid transparent;
+    border-right: 15px solid #484848;
+    border-bottom: 10px solid transparent;
+    left: 9px;
+    bottom: 7px;
+}
+
+button#right::before {
+    border-top: 10px solid transparent;
+    border-left: 15px solid #484848;
+    border-bottom: 10px solid transparent;
+    left: 10px;
+    bottom: 8px;
+}
+
+button#up::before {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid #484848;
+    left: 7px;
+    top: 9px;
+}
+
+button#down::before {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 15px solid #484848;
+    left: 7px;
+    top: 11px;
+}
 .mazeLevel {
     position: relative;
 }
