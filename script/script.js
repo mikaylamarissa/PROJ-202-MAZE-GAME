@@ -334,6 +334,10 @@ function Game(id, levelNum) {
     this.number = level.name;
     this.player.el = null;
 };
+//add level number to screen
+// Game.prototype.addLevelNumber() {
+
+// };
 
 Game.prototype.populateMap = function () {
     //Adding the theme class to the maze game container
@@ -504,13 +508,6 @@ Game.prototype.keyboardListener = function (event) {
     );
 };
 
-//Level Generator
-// Game.prototype.levelDisplay = function() {
-//     let level = document.querySelector("#level");
-//     if (this.play)
-
-// }
-
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
@@ -531,7 +528,6 @@ Game.prototype.addMazeListener = function () {
         if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
             return;
         };
-
         obj.changeLevel(1);
         // Clear tile and sprite layers
         let layers = obj.el.querySelectorAll('.layer');
@@ -541,22 +537,26 @@ Game.prototype.addMazeListener = function () {
         obj.placeLevel();
         obj.checkGoal();
     });
-};
+}; 
 
 // Change levels
 Game.prototype.changeLevel = function (num) {
-    console.log(num);
-    startTimer();
+    this.startTimer();
     this.currentLevelNum += num;
     this.level;
     if (this.currentLevelNum > levels.length - 1) {
         alert("You Have finished the Game.")
     };
     let level = levels[this.currentLevelNum];
+    document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
     this.map = level.map;
     this.theme = level.theme;
     this.player = { ...level.player };
     this.goal = { ...level.goal };
+};
+
+Game.prototype.writeLevel = function (){
+    document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
 };
 
 //Collision
@@ -625,9 +625,19 @@ Game.prototype.startTimer = function () {
     let second = 0,
         minute = 0,
         hour = 0;
-
+    const reset = () => {
+        this.changeLevel(0);
+        // Clear tile and sprite layers
+        let layers = this.el.querySelectorAll('.layer');
+        for (layer of layers) {
+            layer.innerHTML = '';
+        };
+        this.placeLevel();
+        this.checkGoal();
+    };
     // Next we set a interval every 1000 ms
     timerInterval = setInterval(function () {
+        console.log("timer");
         // Toggle the odd class every interval
         timer.classList.toggle('odd');
 
@@ -647,12 +657,11 @@ Game.prototype.startTimer = function () {
             second = 0;
         }
         // If we hit 60 minutes "one hour" we reset the minutes and plus an hour
-        if (second == 10) {
+        if (second == 62) {
             alert("You took to long");
             clearInterval(timerInterval);
-            this.changeLevel(0);
-            // startTimer();
-            // location.reload;
+            reset();
+
         }
     }, 1000);
 };
@@ -663,6 +672,7 @@ function init() {
     myGame.placeLevel();
     myGame.addListeners();
     myGame.startTimer();
+    myGame.writeLevel();
     // document.getElementById(levelArea).innherHTML = this.number;
 };
 init();
