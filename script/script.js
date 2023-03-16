@@ -35,7 +35,7 @@ levels[0] = {
 
 //Level 2
 levels[1] = {
-    name: "Level 2",
+    name: 2,
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -65,7 +65,7 @@ levels[1] = {
 };
 //Level 3
 levels[2] = {
-    name: "Level 3",
+    name: 3,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -95,7 +95,7 @@ levels[2] = {
 };
 //Level 4
 levels[3] = {
-    name: "Level 4",
+    name: 4,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
@@ -127,7 +127,7 @@ levels[3] = {
 };
 //Level 5
 levels[4] = {
-    name: "Level 5",
+    name: 5,
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -159,7 +159,7 @@ levels[4] = {
 };
 //Level 6
 levels[5] = {
-    name: "Level 6",
+    name: 6,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -192,7 +192,7 @@ levels[5] = {
 };
 //Level 7
 levels[6] = {
-    name: "Level 7",
+    name: 7,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
@@ -225,7 +225,7 @@ levels[6] = {
 };
 //Level 8
 levels[7] = {
-    name: "Level 8",
+    name: 8,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -257,7 +257,7 @@ levels[7] = {
 };
 //Level 9
 levels[8] = {
-    name: "Level 9",
+    name: 9,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -554,7 +554,6 @@ Game.prototype.changeLevel = function () {
     this.theme = level.theme;
     this.player = { ...level.player };
     this.goal = { ...level.goal };
-    document.getElementById(levelSpot).innherHTML = this.levelUp;
 };
 
 //Collision
@@ -617,5 +616,6 @@ function init() {
     let myGame = new Game('mazeGameContainer', levels[0]);
     myGame.placeLevel();
     myGame.addListeners();
+    document.getElementById(levelArea).innherHTML = this.number;
 };
 init();
