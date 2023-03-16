@@ -531,7 +531,6 @@ Game.prototype.addMazeListener = function () {
         if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
             return;
         };
-
         obj.changeLevel(1);
         // Clear tile and sprite layers
         let layers = obj.el.querySelectorAll('.layer');
@@ -546,7 +545,7 @@ Game.prototype.addMazeListener = function () {
 // Change levels
 Game.prototype.changeLevel = function (num) {
     console.log(num);
-    startTimer();
+    this.startTimer();
     this.currentLevelNum += num;
     this.level;
     if (this.currentLevelNum > levels.length - 1) {
@@ -625,9 +624,19 @@ Game.prototype.startTimer = function () {
     let second = 0,
         minute = 0,
         hour = 0;
-
+    const reset = () => {
+        this.changeLevel(0);
+        // Clear tile and sprite layers
+        let layers = this.el.querySelectorAll('.layer');
+        for (layer of layers) {
+            layer.innerHTML = '';
+        };
+        this.placeLevel();
+        this.checkGoal();
+    };
     // Next we set a interval every 1000 ms
     timerInterval = setInterval(function () {
+        console.log("timer");
         // Toggle the odd class every interval
         timer.classList.toggle('odd');
 
@@ -650,9 +659,8 @@ Game.prototype.startTimer = function () {
         if (second == 10) {
             alert("You took to long");
             clearInterval(timerInterval);
-            this.changeLevel(0);
-            // startTimer();
-            // location.reload;
+            reset();
+
         }
     }, 1000);
 };
