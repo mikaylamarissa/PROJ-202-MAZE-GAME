@@ -4,6 +4,7 @@ let levels = [];
 
 //Level 1
 levels[0] = {
+    name: 1,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -34,6 +35,7 @@ levels[0] = {
 
 //Level 2
 levels[1] = {
+    name: 2,
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -63,6 +65,7 @@ levels[1] = {
 };
 //Level 3
 levels[2] = {
+    name: 3,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -92,6 +95,7 @@ levels[2] = {
 };
 //Level 4
 levels[3] = {
+    name: 4,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
@@ -123,6 +127,7 @@ levels[3] = {
 };
 //Level 5
 levels[4] = {
+    name: 5,
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -154,6 +159,7 @@ levels[4] = {
 };
 //Level 6
 levels[5] = {
+    name: 6,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -186,6 +192,7 @@ levels[5] = {
 };
 //Level 7
 levels[6] = {
+    name: 7,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
@@ -218,6 +225,7 @@ levels[6] = {
 };
 //Level 8
 levels[7] = {
+    name: 8,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -249,6 +257,7 @@ levels[7] = {
 };
 //Level 9
 levels[8] = {
+    name: 9,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -280,6 +289,7 @@ levels[8] = {
 };
 //Level 10
 levels[9] = {
+    name: 10,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -310,17 +320,18 @@ levels[9] = {
     theme: 'default'
 };
 
-function Game(id, level) {
+function Game(id, levelNum) {
     this.el = document.getElementById(id);
-    this.levelUp = 0;
+    this.currentLevelNum = levelNum;
     this.tileTypes = ['floor', 'wall'];
     this.tileSize = 32;
     //inheritting the level's properties
+    const level = levels[levelNum];
     this.map = level.map;
     this.theme = level.theme;
-
     this.player = { ...level.player };
     this.goal = { ...level.goal };
+    this.number = level.name;
     this.player.el = null;
 };
 
@@ -368,7 +379,6 @@ Game.prototype.placeSprite = function (type) {
     let sprite = this.createEl(x, y, type);
     sprite.id = type;
 
-    sprite.style.borderRadius = this.tileSize + 'px';
     let layer = this.el.querySelector('#sprites');
     layer.appendChild(sprite);
 
@@ -494,6 +504,13 @@ Game.prototype.keyboardListener = function (event) {
     );
 };
 
+//Level Generator
+// Game.prototype.levelDisplay = function() {
+//     let level = document.querySelector("#level");
+//     if (this.play)
+
+// }
+
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
@@ -505,7 +522,7 @@ Game.prototype.checkGoal = function () {
     }
 };
 
-// Listens for clicks or taps to the maze
+// Listens for clicks or taps to the maze to change the level on the screen
 Game.prototype.addMazeListener = function () {
     let map = this.el.querySelector('.mazeLevel');
     let obj = this;
@@ -514,7 +531,8 @@ Game.prototype.addMazeListener = function () {
         if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
             return;
         };
-        obj.changeLevel();
+
+        obj.changeLevel(1);
         // Clear tile and sprite layers
         let layers = obj.el.querySelectorAll('.layer');
         for (layer of layers) {
@@ -526,12 +544,15 @@ Game.prototype.addMazeListener = function () {
 };
 
 // Change levels
-Game.prototype.changeLevel = function () {
-    this.levelUp++;
-    if (this.levelUp > levels.length - 1) {
+Game.prototype.changeLevel = function (num) {
+    console.log(num);
+    startTimer();
+    this.currentLevelNum += num;
+    this.level;
+    if (this.currentLevelNum > levels.length - 1) {
         alert("You Have finished the Game.")
     };
-    let level = levels[this.levelUp];
+    let level = levels[this.currentLevelNum];
     this.map = level.map;
     this.theme = level.theme;
     this.player = { ...level.player };
@@ -594,9 +615,54 @@ Game.prototype.placeLevel = function () {
     this.player.el = playerSprite;
 };
 
+//Timer that counts down
+Game.prototype.startTimer = function () {
+    const timer = document.getElementById("timer");
+    let timerInterval;
+    // Firs twe start by clearing the existing timer, in case of a restart
+    clearInterval(timerInterval);
+    // Then we clear the variables
+    let second = 0,
+        minute = 0,
+        hour = 0;
+
+    // Next we set a interval every 1000 ms
+    timerInterval = setInterval(function () {
+        // Toggle the odd class every interval
+        timer.classList.toggle('odd');
+
+        // We set the timer text to include a two digit representation
+        timer.innerHTML =
+            (hour ? hour + ":" : "") +
+            (minute < 10 ? "0" + minute : minute) +
+            ":" +
+            (second < 10 ? "0" + second : second);
+
+        // Next we add a new second since one second is passed
+        second++;
+        // We check if the second equals 60 "one minute"
+        if (second == 60) {
+            // If so, we add a minute and reset our seconds to 0
+            minute++;
+            second = 0;
+        }
+        // If we hit 60 minutes "one hour" we reset the minutes and plus an hour
+        if (second == 10) {
+            alert("You took to long");
+            clearInterval(timerInterval);
+            this.changeLevel(0);
+            // startTimer();
+            // location.reload;
+        }
+    }, 1000);
+};
+
+
 function init() {
-    let myGame = new Game('mazeGameContainer', levels[0]);
+    let myGame = new Game('mazeGameContainer', 0);
     myGame.placeLevel();
     myGame.addListeners();
+    myGame.startTimer();
+    // document.getElementById(levelArea).innherHTML = this.number;
 };
 init();

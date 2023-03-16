@@ -162,7 +162,8 @@ a {
     cursor: pointer;
     position: relative;
 }
-#controls button:hover{
+
+#controls button:hover {
     background-color: #ccc;
 }
 
@@ -203,6 +204,7 @@ button#down::before {
     left: 7px;
     top: 11px;
 }
+
 .mazeLevel {
     position: relative;
 }
@@ -222,8 +224,9 @@ div.layer div {
 
 
 .goal {
-    background-color: red;
-    border: 1px solid darkred;
+    background-image: url('../assets/pylon-svgrepo-com.svg');
+    background-size: cover;
+    background-color: orange;
 }
 
 .player {
@@ -350,6 +353,29 @@ input:checked+.slider:before {
 .player.collide {
     animation: wobble 0.2s;
     animation-iteration-count: infinite;
+}
+
+footer {
+    background-color: #484848;
+}
+
+footer p {
+    margin-bottom: 0px;
+    font-size: 1rem;
+    line-height: 20px;
+}
+
+footer a {
+    padding: 0px;
+    color: white;
+    font-family: "abolition-soft", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1.75px;
+    line-height: 20px;
+}
+
+footer a:hover {
+    color: #FFE141;
 }
 
 @media only screen and (min-width: 768px) {
