@@ -334,6 +334,10 @@ function Game(id, levelNum) {
     this.number = level.name;
     this.player.el = null;
 };
+//add level number to screen
+// Game.prototype.addLevelNumber() {
+
+// };
 
 Game.prototype.populateMap = function () {
     //Adding the theme class to the maze game container
@@ -504,13 +508,6 @@ Game.prototype.keyboardListener = function (event) {
     );
 };
 
-//Level Generator
-// Game.prototype.levelDisplay = function() {
-//     let level = document.querySelector("#level");
-//     if (this.play)
-
-// }
-
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
@@ -540,11 +537,10 @@ Game.prototype.addMazeListener = function () {
         obj.placeLevel();
         obj.checkGoal();
     });
-};
+}; 
 
 // Change levels
 Game.prototype.changeLevel = function (num) {
-    console.log(num);
     this.startTimer();
     this.currentLevelNum += num;
     this.level;
@@ -552,10 +548,15 @@ Game.prototype.changeLevel = function (num) {
         alert("You Have finished the Game.")
     };
     let level = levels[this.currentLevelNum];
+    document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
     this.map = level.map;
     this.theme = level.theme;
     this.player = { ...level.player };
     this.goal = { ...level.goal };
+};
+
+Game.prototype.writeLevel = function (){
+    document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
 };
 
 //Collision
@@ -656,7 +657,7 @@ Game.prototype.startTimer = function () {
             second = 0;
         }
         // If we hit 60 minutes "one hour" we reset the minutes and plus an hour
-        if (second == 10) {
+        if (second == 62) {
             alert("You took to long");
             clearInterval(timerInterval);
             reset();
@@ -671,6 +672,7 @@ function init() {
     myGame.placeLevel();
     myGame.addListeners();
     myGame.startTimer();
+    myGame.writeLevel();
     // document.getElementById(levelArea).innherHTML = this.number;
 };
 init();
