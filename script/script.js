@@ -4,6 +4,7 @@ let levels = [];
 
 //Level 1
 levels[0] = {
+    name: 1,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -34,6 +35,7 @@ levels[0] = {
 
 //Level 2
 levels[1] = {
+    name: "Level 2",
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -63,6 +65,7 @@ levels[1] = {
 };
 //Level 3
 levels[2] = {
+    name: "Level 3",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -92,6 +95,7 @@ levels[2] = {
 };
 //Level 4
 levels[3] = {
+    name: "Level 4",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
@@ -123,6 +127,7 @@ levels[3] = {
 };
 //Level 5
 levels[4] = {
+    name: "Level 5",
     //0 = floor  1 = wall
     map: [
         [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -154,6 +159,7 @@ levels[4] = {
 };
 //Level 6
 levels[5] = {
+    name: "Level 6",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -186,6 +192,7 @@ levels[5] = {
 };
 //Level 7
 levels[6] = {
+    name: "Level 7",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
@@ -218,6 +225,7 @@ levels[6] = {
 };
 //Level 8
 levels[7] = {
+    name: "Level 8",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -249,6 +257,7 @@ levels[7] = {
 };
 //Level 9
 levels[8] = {
+    name: "Level 9",
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -280,6 +289,7 @@ levels[8] = {
 };
 //Level 10
 levels[9] = {
+    name: 10,
     //0 = floor  1 = wall
     map: [
         [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -312,7 +322,7 @@ levels[9] = {
 
 function Game(id, level) {
     this.el = document.getElementById(id);
-    this.levelUp = 0;
+    this.levelUp = 1;
     this.tileTypes = ['floor', 'wall'];
     this.tileSize = 32;
     //inheritting the level's properties
@@ -321,6 +331,7 @@ function Game(id, level) {
 
     this.player = { ...level.player };
     this.goal = { ...level.goal };
+    this.number = level.name;
     this.player.el = null;
 };
 
@@ -493,6 +504,13 @@ Game.prototype.keyboardListener = function (event) {
     );
 };
 
+//Level Generator
+// Game.prototype.levelDisplay = function() {
+//     let level = document.querySelector("#level");
+//     if (this.play)
+    
+// }
+
 //Goal detection
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
@@ -527,6 +545,7 @@ Game.prototype.addMazeListener = function () {
 // Change levels
 Game.prototype.changeLevel = function () {
     this.levelUp++;
+    this.level;
     if (this.levelUp > levels.length - 1) {
         alert("You Have finished the Game.")
     };
@@ -535,6 +554,7 @@ Game.prototype.changeLevel = function () {
     this.theme = level.theme;
     this.player = { ...level.player };
     this.goal = { ...level.goal };
+    document.getElementById(levelSpot).innherHTML = this.levelUp;
 };
 
 //Collision
