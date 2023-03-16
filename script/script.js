@@ -508,7 +508,7 @@ Game.prototype.keyboardListener = function (event) {
 // Game.prototype.levelDisplay = function() {
 //     let level = document.querySelector("#level");
 //     if (this.play)
-    
+
 // }
 
 //Goal detection
@@ -544,6 +544,7 @@ Game.prototype.addMazeListener = function () {
 
 // Change levels
 Game.prototype.changeLevel = function () {
+    startTimer();
     this.levelUp++;
     this.level;
     if (this.levelUp > levels.length - 1) {
@@ -612,10 +613,58 @@ Game.prototype.placeLevel = function () {
     this.player.el = playerSprite;
 };
 
+//Timer that counts down
+const timer = document.getElementById("timer");
+let timerInterval;
+startTimer = () => {
+    // Firs twe start by clearing the existing timer, in case of a restart
+    clearInterval(timerInterval);
+    // Then we clear the variables
+    let second = 0,
+        minute = 0,
+        hour = 0;
+
+    // Next we set a interval every 1000 ms
+    timerInterval = setInterval(function () {
+        // Toggle the odd class every interval
+        timer.classList.toggle('odd');
+
+        // We set the timer text to include a two digit representation
+        timer.innerHTML =
+            (hour ? hour + ":" : "") +
+            (minute < 10 ? "0" + minute : minute) +
+            ":" +
+            (second < 10 ? "0" + second : second);
+
+        // Next we add a new second since one second is passed
+        second++;
+
+        // We check if the second equals 60 "one minute"
+        if (second == 60) {
+            // If so, we add a minute and reset our seconds to 0
+            minute++;
+            second = 0;
+        }
+
+        // If we hit 60 minutes "one hour" we reset the minutes and plus an hour
+        if (minute == 1) {
+            alert("You took to long");
+            clearInterval(timerInterval);
+            // startTimer();
+            // location.reload;
+        }
+    }, 1000);
+};
+
+function reset(){
+    startTimer();
+}
+
 function init() {
     let myGame = new Game('mazeGameContainer', levels[0]);
     myGame.placeLevel();
     myGame.addListeners();
+    startTimer(); 
     document.getElementById(levelArea).innherHTML = this.number;
 };
 init();
