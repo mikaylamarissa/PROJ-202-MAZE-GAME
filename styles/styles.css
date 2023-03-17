@@ -24,7 +24,8 @@ h2 {
 }
 
 h3 {
-    font-family: "anodyne", sans-serif;
+    font-family: "abolition-soft", sans-serif;
+    letter-spacing: 2px;
 }
 
 p {
@@ -70,14 +71,14 @@ a {
 }
 
 .headerContainer {
-    width:100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
     align-content: normal;
-
+    padding-bottom: 5px;
 }
 
 .headerDisplays {
@@ -107,15 +108,15 @@ a {
     padding-left: 30px;
 }
 
-.congrats h1 {
+#congrats h1 {
     color: #FFE141;
 }
 
-.congrats h2 {
+#congrats h2 {
     color: #FFE141;
 }
 
-.congrats {
+#congrats {
     display: flex;
     flex-direction: column;
     margin-right: auto;
@@ -149,12 +150,13 @@ a {
 }
 
 #controls {
-    margin-top: 20px;;
+    margin-top: 20px;
+    ;
     text-align: center;
 }
 
 #controls button {
-    margin:20px 10px;
+    margin: 20px 10px;
     padding: 10px;
     width: 60px;
     height: 60px;
