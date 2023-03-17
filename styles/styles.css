@@ -108,15 +108,15 @@ a {
     padding-left: 30px;
 }
 
-.congrats h1 {
+#congrats h1 {
     color: #FFE141;
 }
 
-.congrats h2 {
+#congrats h2 {
     color: #FFE141;
 }
 
-.congrats {
+#congrats {
     display: flex;
     flex-direction: column;
     margin-right: auto;

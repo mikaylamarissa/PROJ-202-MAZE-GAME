@@ -250,7 +250,7 @@ levels[7] = {
     },
     // x and y values will be the goal positon
     goal: {
-        x: 8,
+        x: 4,
         y: 0
     },
     theme: 'default'
@@ -267,11 +267,11 @@ levels[8] = {
         [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
         [1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1],
         [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1],
         [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1],
         [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1],
-        [1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1],
         [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]
     ],
@@ -532,7 +532,7 @@ Game.prototype.changeLevel = function (num) {
     this.currentLevelNum += num;
     this.level;
     if (this.currentLevelNum > levels.length - 1) {
-        alert("Congrats you Have finished the Game.")
+        body.className='sucess'
     };
     let level = levels[this.currentLevelNum];
     document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
@@ -639,7 +639,7 @@ Game.prototype.startTimer = function () {
 
         // Next we add a new second since one second is passed
         second++;
-        if (second >= 62) {
+        if (second >= 32) {
             reset();
             alert("Sorry, you took to long. Try Again.");
         }
