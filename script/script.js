@@ -509,7 +509,7 @@ Game.prototype.keyboardListener = function (event) {
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
-        alert("Level Complete. Click on the maze to move to next level.");
+        alert("Level Complete!!");
         this.changeLevel(1);
         // Clear tile and sprite layers
         let layers = this.el.querySelectorAll('.layer');
@@ -542,7 +542,7 @@ Game.prototype.changeLevel = function (num) {
     this.goal = { ...level.goal };
 };
 
-Game.prototype.writeLevel = function (){
+Game.prototype.writeLevel = function () {
     document.getElementById("levelArea").innerHTML = this.currentLevelNum + 1;
 };
 
@@ -611,9 +611,9 @@ Game.prototype.startTimer = function () {
     let second = 0;
     let minute = 0;
     let hour = 0;
-    if(this.timerInterval !== null) {
+    if (this.timerInterval !== null) {
         clearInterval(this.timerInterval);
-        this.timerInterval= null;
+        this.timerInterval = null;
     }
     const reset = () => {
         this.changeLevel(0);
@@ -639,7 +639,7 @@ Game.prototype.startTimer = function () {
 
         // Next we add a new second since one second is passed
         second++;
-        if (second >= 10) {
+        if (second >= 62) {
             reset();
             alert("Sorry, you took to long. Try Again.");
         }
