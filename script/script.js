@@ -509,41 +509,26 @@ Game.prototype.keyboardListener = function (event) {
 Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
-        // TODO: STOP THE TIMER
-        // clearInterval(this.startTimer());
         alert("Level Complete. Click on the maze to move to next level.");
+        this.changeLevel(1);
+        // Clear tile and sprite layers
+        let layers = this.el.querySelectorAll('.layer');
+        for (layer of layers) {
+            layer.innerHTML = '';
+        };
+        this.placeLevel();
     }
     else {
         body.className = '';
     }
 };
 
-// Listens for clicks or taps to the maze to change the level on the screen
-Game.prototype.addMazeListener = function () {
-    let map = this.el.querySelector('.mazeLevel');
-    let obj = this;
-    map.addEventListener('mousedown', function (e) {
-        // if not at the goal get out of function
-        if (obj.player.y != obj.goal.y || obj.player.x != obj.goal.x) {
-            return;
-        };
-        obj.changeLevel(1);
-        // Clear tile and sprite layers
-        let layers = obj.el.querySelectorAll('.layer');
-        for (layer of layers) {
-            layer.innerHTML = '';
-        };
-        obj.placeLevel();
-        obj.checkGoal();
-    });
-}; 
-
 // Change levels
 Game.prototype.changeLevel = function (num) {
     // this.second=0;
     // this.minute=0;
     // this.hour=0;
-    // this.startTimer();
+    this.startTimer();
     this.currentLevelNum += num;
     this.level;
     if (this.currentLevelNum > levels.length - 1) {
@@ -605,7 +590,7 @@ Game.prototype.buttonListeners = function (info_msg, goal_msg) {
 //Reorganized everything that was in the init function
 Game.prototype.addListeners = function () {
     this.keyboardListener();
-    this.addMazeListener();
+    // this.addMazeListener();
     this.buttonListeners();
 };
 
@@ -617,20 +602,19 @@ Game.prototype.placeLevel = function () {
     this.player.el = playerSprite;
 };
 
-Game.prototype.second=0;
-Game.prototype.hour=0;
-Game.prototype.minute=0;
+Game.prototype.timerInterval = null;
 
 //Timer that counts down
 Game.prototype.startTimer = function () {
     const timer = document.getElementById("timer");
-    let timerInterval;
-    // Firs twe start by clearing the existing timer, in case of a restart
-    clearInterval(timerInterval);
     // Then we clear the variables
-    let second = Game.prototype.second,
-        minute = Game.prototype.minute,
-        hour = Game.prototype.hour;
+    let second = 0;
+    let minute = 0;
+    let hour = 0;
+    if(this.timerInterval !== null) {
+        clearInterval(this.timerInterval);
+        this.timerInterval= null;
+    }
     const reset = () => {
         this.changeLevel(0);
         // Clear tile and sprite layers
@@ -640,10 +624,9 @@ Game.prototype.startTimer = function () {
         };
         this.placeLevel();
         this.checkGoal();
-        clearInterval(timerInterval);
     };
     // Next we set a interval every 1000 ms
-    timerInterval = setInterval(function () {
+    this.timerInterval = setInterval(function () {
         console.log("tick" + second)
         // Toggle the odd class every interval
         timer.classList.toggle('odd');
@@ -656,12 +639,13 @@ Game.prototype.startTimer = function () {
 
         // Next we add a new second since one second is passed
         second++;
-        if (second >= 20) {
+        if (second >= 10) {
             reset();
             alert("Sorry, you took to long. Try Again.");
         }
     }, 1000);
 };
+
 
 
 function init() {
