@@ -510,7 +510,7 @@ Game.prototype.checkGoal = function () {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
         // TODO: STOP THE TIMER
-        clearInterval(this.startTimer());
+        // clearInterval(this.startTimer());
         alert("Level Complete. Click on the maze to move to next level.");
     }
     else {
@@ -540,7 +540,10 @@ Game.prototype.addMazeListener = function () {
 
 // Change levels
 Game.prototype.changeLevel = function (num) {
-    this.startTimer();
+    // this.second=0;
+    // this.minute=0;
+    // this.hour=0;
+    // this.startTimer();
     this.currentLevelNum += num;
     this.level;
     if (this.currentLevelNum > levels.length - 1) {
@@ -614,6 +617,10 @@ Game.prototype.placeLevel = function () {
     this.player.el = playerSprite;
 };
 
+Game.prototype.second=0;
+Game.prototype.hour=0;
+Game.prototype.minute=0;
+
 //Timer that counts down
 Game.prototype.startTimer = function () {
     const timer = document.getElementById("timer");
@@ -621,9 +628,9 @@ Game.prototype.startTimer = function () {
     // Firs twe start by clearing the existing timer, in case of a restart
     clearInterval(timerInterval);
     // Then we clear the variables
-    let second = 0,
-        minute = 0,
-        hour = 0;
+    let second = Game.prototype.second,
+        minute = Game.prototype.minute,
+        hour = Game.prototype.hour;
     const reset = () => {
         this.changeLevel(0);
         // Clear tile and sprite layers
@@ -637,6 +644,7 @@ Game.prototype.startTimer = function () {
     };
     // Next we set a interval every 1000 ms
     timerInterval = setInterval(function () {
+        console.log("tick" + second)
         // Toggle the odd class every interval
         timer.classList.toggle('odd');
         // We set the timer text to include a two digit representation
